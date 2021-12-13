@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  abstractExchangeApiBaseUrl:"https://exchange-rates.abstractapi.com/v1",
+  abstractExchangeApiKey:"92a289a2605e4747a4daf0fcb65f6d5d"
 };
 
 /*
