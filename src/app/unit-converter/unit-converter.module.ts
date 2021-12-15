@@ -12,6 +12,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from '@angular/material/select';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -28,9 +33,10 @@ const UNIT_ROUTES:Routes = [
         UnitConverterComponent
     ],
     exports:[
-        UnitConverterComponent
+        UnitConverterComponent,
     ],
     imports:[
+        CommonModule,
         RouterModule.forChild(UNIT_ROUTES),
         FlexLayoutModule,
         MatToolbarModule,
@@ -42,7 +48,12 @@ const UNIT_ROUTES:Routes = [
         MatInputModule,
         MatSidenavModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatSelectModule,
+        MatBadgeModule
     ]
 
 })

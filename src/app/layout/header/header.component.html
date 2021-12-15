@@ -1,13 +1,13 @@
 <mat-toolbar color="primary" class="sticky">
     <mat-toolbar-row fxLayoutAlign="space-between center">
       <div fxLayout="row">
-        <button mat-button>
+        <button mat-button routerLink='/'>
           <mat-icon>home</mat-icon>
           <span class="logo">Box Commerce</span>
         </button>
         <div *ngIf="!deviceXs" fxLayout="row">
-          <button mat-button>Currency</button>
-          <button mat-button>Unit</button>
+          <button mat-button routerLink='/currency'>Currency</button>
+          <button mat-button routerLink='/unit'>Unit</button>
         </div>
       </div>
       <div>
@@ -25,12 +25,16 @@
       </div>
     </mat-toolbar-row>
     <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
-        <button mat-button>Currency</button>
-        <button mat-button>Unit</button>
+        <button mat-button routerLink='/currency'>Currency</button>
+        <button mat-button routerLink='/unit'>Unit</button>
     </mat-toolbar-row>
   </mat-toolbar>
   <!-- Menu Items -->
   <mat-menu #menu="matMenu" fxLayoutAlign="end">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <button mat-menu-item routerLink='/currency'>Currency</button>
+    <button mat-menu-item routerLink='/unit'>Unit</button>
+    <ng-container *ngIf="isLoggedIn">
+        <button mat-menu-item (click)="logOut()">Logout</button>
+    </ng-container>
+
   </mat-menu>

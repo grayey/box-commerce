@@ -12,17 +12,7 @@ import { CurrencyConverterService } from 'src/services/currency-converter.servic
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 import { RouterModule, Routes } from '@angular/router';
-import { MatListModule } from '@angular/material/list';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatRippleModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 const APP_ROUTES:Routes = [
   {
@@ -57,17 +47,7 @@ const APP_ROUTES:Routes = [
     ReactiveFormsModule,
     LayoutModule, 
     RouterModule.forRoot(APP_ROUTES),
-    MatListModule,
-    FlexLayoutModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatSidenavModule,
-    MatCardModule,
   ],
   providers: [
     ApiHandlerService,

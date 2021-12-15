@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  abstractExchangeApiBaseUrl:"https://exchange-rates.abstractapi.com/v1",
-  abstractExchangeApiKey:"92a289a2605e4747a4daf0fcb65f6d5d"
+  currencyConverterApiBaseUrl:"https://free.currconv.com/api/v7",
+  currencyConverterApiKey:"5bd80b0748bea38f6f65",
+  clientUrl:"http://example.com"
 
 };

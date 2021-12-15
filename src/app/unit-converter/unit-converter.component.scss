@@ -1,0 +1,21 @@
+.full-container{
+    height: 90vh;
+    padding: 16px;
+
+}
+
+.full-container > mat-card {
+    margin-bottom: 16px;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.icon-button{
+    width: 40px;
+    min-width: 40px;
+    font-size: small;
+    font:10px;
+    padding: 2px;
+}

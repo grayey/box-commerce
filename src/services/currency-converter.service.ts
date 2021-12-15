@@ -1,16 +1,17 @@
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { ApiHandlerService } from "./api-handler.service";
-import { buildParams } from '../utils/formatters';
+import { buildParams, getDaysApart } from '../utils/formatters';
 import { Injectable } from "@angular/core";
 import { CurrencyEnums } from "src/enums";
+import { DatePeriod } from "src/interfaces/currency.interface";
 
 
 @Injectable()
 export class CurrencyConverterService{
 
     private defaultRequestParams = {
-        api_key:environment.abstractExchangeApiKey
+        apiKey:environment.currencyConverterApiKey
     };
 
     constructor(private apiHandler:ApiHandlerService){}
@@ -19,17 +20,14 @@ export class CurrencyConverterService{
      * This method retrieves exchangeRate
      * @returns 
      */
-    public getExchangeRate = (base:string, target:string):Observable<any> => {
+    public getExchangeRate = (q:string):Observable<any> => {
         const paramString = buildParams({
             ...this.defaultRequestParams,
-            base, 
-            target
+            q
         });
-        const path = `${environment.abstractExchangeApiBaseUrl}/live/${paramString}`;
+        const path = `${environment.currencyConverterApiBaseUrl}/convert/${paramString}`;
         return this.apiHandler.get(path);
     };
-
-
 
     /**
      * This method retrieves a list of currencies
@@ -38,11 +36,30 @@ export class CurrencyConverterService{
     public getCurrencies = ():Observable<any> => {
         const paramString = buildParams({
             ...this.defaultRequestParams,
-            base:CurrencyEnums.USD
+            // base:CurrencyEnums.USD
         });
-        const path = `${environment.abstractExchangeApiBaseUrl}/live/${paramString}`;
+        const path = `${environment.currencyConverterApiBaseUrl}/currencies/${paramString}`;
         return this.apiHandler.get(path);
     };
+    
+
+     /**
+     * This method retrieves a list of currencies
+     * @returns 
+     */
+      public getHistoricalData = (q:string):Observable<any> => {
+        const datePeriod:DatePeriod = getDaysApart();
+        const paramString = buildParams({
+            ...this.defaultRequestParams,
+            ...datePeriod,
+            q,
+            compact:"ultra"
+        });
+        const path = `${environment.currencyConverterApiBaseUrl}/convert/${paramString}`;
+        return this.apiHandler.get(path);
+    };
+
+    
 
 
 }

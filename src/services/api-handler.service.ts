@@ -19,11 +19,12 @@ export class ApiHandlerService{
    *
    */
   public get(path: string): Observable<any> {
-    return this.http.get(path, this.headers).retryWhen((errors) =>  errors.mergeMap(this.errorHandler)
+    return this.http.get(path, this.headers).retryWhen((errors) =>  
+        errors.mergeMap(this.errorHandler)
         .delay(1000)
         .take(2)
-      ).catch(this.errorHandler)
-      .map((res) => res);
+        ).catch(this.errorHandler)
+        .map((res) => res);
   }
 
 

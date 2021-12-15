@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { CurrencyConverterComponent } from "./currency-converter.component";
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -12,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -31,6 +37,7 @@ const CURRENCY_ROUTES:Routes = [
         CurrencyConverterComponent
     ],
     imports:[
+        CommonModule,
         RouterModule.forChild(CURRENCY_ROUTES),
         FlexLayoutModule,
         MatToolbarModule,
@@ -42,7 +49,13 @@ const CURRENCY_ROUTES:Routes = [
         MatInputModule,
         MatSidenavModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        MatSelectModule,
+        MatGridListModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatProgressSpinnerModule
     ]
 
 })
